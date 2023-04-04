@@ -14,3 +14,17 @@ The regulations for using the dataset are found in the [Rules](https://www.kaggl
 
 
 ## Files Description
+
+create_splits.py: Splits the dataset into train and validation sets where patients are unique in each set. Creates csv files with the paths and labels of images for the training and validation sets and returns training weights.
+
+
+dataset.py: Augments images and prepares the datasets for training and validation.
+
+
+network.py: Sets the structure for the CNNs that will be trained. 
+
+
+train.py: Trains the classifiers, evaluates them and returns the best performing classifier and the metrics of interest. 
+
+
+treain_classifier.py: Script set in the Google Collab environment to set the desired model configs and train the classifier by calling the previous py files. 
