@@ -15,7 +15,7 @@ The regulations for using the dataset are found in the [Rules](https://www.kaggl
 
 ## Files Description
 
-create_splits.py: Splits the dataset into train and validation sets where patients are unique in each set. Creates csv files with the paths and labels of images for the training and validation sets and returns training weights.
+`create_splits.py`: Splits the dataset into train and validation sets where patients are unique in each set. Creates csv files with the paths and labels of images for the training and validation sets and returns training weights.
 
 
 `dataset.py`: Augments images and prepares the datasets for training and validation.
