@@ -7,7 +7,7 @@ The goal of our Capstone project was to explore different computer vision techni
 ## Data
 
 
-The dataset used for model training and testing was obtained from Kaggle and consists of images from roughly 12000 patients with an average of 4 images per patient. Since the data was part of a Kaggle competition, a comprehensive test set was not available, therefore only [train_images](https://www.kaggle.com/competitions/rsna-breast-cancer-detection/data?select=train_images) was used and split into train and test sets.
+The dataset used for model training and testing was obtained from the "RSNA Screening Mammography Breast Cancer Detection" Kaggle competition and consists of images from roughly 12000 patients with an average of 4 images per patient. Since the data was part of a Kaggle competition, a comprehensive test set was not available, therefore only [train_images](https://www.kaggle.com/competitions/rsna-breast-cancer-detection/data?select=train_images) was used and split into train and test sets.
 
 
 The regulations for using the dataset are found in the [Rules](https://www.kaggle.com/competitions/rsna-breast-cancer-detection/rules) section of the "RSNA Screening Mammography Breast Cancer Detection" Kaggle page. The scope of our project is exclusively educational, respecting the licenses for data use and redistribution.
