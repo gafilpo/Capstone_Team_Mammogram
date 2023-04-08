@@ -7,4 +7,5 @@ torch==2.0.0+cu118
 torchvision==0.15.1+cu118
 sklearn==1.2.2
 tqdm==4.65.0
+pretrainedmodels==0.7.4
 
