@@ -34,3 +34,4 @@ A supplemental dataset was used exclusevely for training in an effort to increas
 
 
 `treain_classifier.py`: Script set in the Google Collab environment to set the desired model configs and train the classifier by calling the previous py files. 
+This script is also used to produce figures 1, 2, 3 and 4 that can be found in the team's Capstone report.
