@@ -32,6 +32,8 @@ class ClassificationModel(nn.Module):
             self.backbone = models.resnet34(pretrained=pretrained)
         elif backbone == "r50":
             self.backbone = models.resnet50(pretrained=pretrained)
+        elif backbone == "r110":
+            self.backbone = models.resnet110(pretrained=pretrained)
         else:
             raise ValueError("Unrecognized backbone")
 
