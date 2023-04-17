@@ -2,7 +2,6 @@
 
 import numpy as np
 import os
-import shutil
 from sklearn import metrics
 import time
 from tqdm import tqdm
@@ -61,10 +60,6 @@ class Trainer:
             dirname_xp += f"_{desc}"
         self.outdir = os.path.join(exp_dir, dirname_xp)
         os.makedirs(self.outdir)
-
-        # Copy config files to output directory
-        #shutil.copyfile(train_configs, os.path.join(self.outdir, "train_configs.yml"))
-        #shutil.copyfile(model_configs, os.path.join(self.outdir, "model_configs.yml"))
 
         # Tensorboard
         self.tb_writer = SummaryWriter(log_dir=self.outdir)
