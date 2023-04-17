@@ -33,4 +33,4 @@ A supplemental dataset was used exclusevely for training in an effort to increas
 `train.py`: Trains the classifiers, evaluates them and saves the best performing classifier as well as each classifier per epoch and returns the performance metrics of interest. 
 
 
-`treain_classifier.py`: Script set in the Google Collab environment to set the desired model configs and train the classifier by calling the previous py files. This script is also used to produce figures 1, 2, 3 and 4 that can be found in the team's Capstone report.
+`treain_classifier.py`: Script constructed in the Google Colab environment to set the desired model configs and train the classifier by calling the previous py files. This script is also used to produce figures 1, 2, 3 and 4 in the team's Capstone Report. To run this script simply upload it in your Google Colab environment in and set it's base path as the Google Drive directory where the called upon py files will be saved. Change the configurations depending on which ResNet you are planning to train and run it. Models and metrics will be saved in the indicated Google Drive directory. 
