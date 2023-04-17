@@ -96,13 +96,3 @@ trainer = train.Trainer(model_configs=MODEL_CONFIGS,
                         desc=DESC)
 
 trainer.train()
-
-"""# Tensorboard (Optional)"""
-
-# Kill existing sessions
-#!kill $(ps -e | grep 'tensorboard' | awk '{print $1}')
-
-# Commented out IPython magic to ensure Python compatibility.
-# %load_ext tensorboard
-
-# %tensorboard --logdir "{BASE_PATH}/{EXP_DIR}/{TRAIN_EXP}"
