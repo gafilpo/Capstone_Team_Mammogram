@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The goal of our Capstone project was to explore different computer vision techniques for the classification of cancer in radiographic breast images of female subjects. The task was approached as a binary problem where the positive class is radiographic breast images with cancer and the negative class is the images without cancer. 
+The goal of our Capstone project was to explore different computer vision techniques for the classification of cancer in mammogram images of female subjects. The task was approached as a binary problem where the positive class is mammogram images with cancer and the negative class is the images without cancer. 
 
 ## Data
 
