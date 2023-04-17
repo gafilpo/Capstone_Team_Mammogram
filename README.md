@@ -15,7 +15,7 @@ The regulations for using the dataset are found in the [Rules](https://www.kaggl
 
 ### Supplemental Datset
 
-A Supplemental dataset was used exclusevely for training in an effort to increase the number of positive examples. 
+A supplemental dataset was used exclusevely for training in an effort to increase the number of positive examples. 
 
 ## Files Description
 
