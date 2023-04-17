@@ -33,5 +33,4 @@ A supplemental dataset was used exclusevely for training in an effort to increas
 `train.py`: Trains the classifiers, evaluates them and saves the best performing classifier as well as each classifier per epoch and returns the performance metrics of interest. 
 
 
-`treain_classifier.py`: Script set in the Google Collab environment to set the desired model configs and train the classifier by calling the previous py files. 
-This script is also used to produce figures 1, 2, 3 and 4 that can be found in the team's Capstone report.
+`treain_classifier.py`: Script set in the Google Collab environment to set the desired model configs and train the classifier by calling the previous py files. This script is also used to produce figures 1, 2, 3 and 4 that can be found in the team's Capstone report.
