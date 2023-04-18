@@ -16,7 +16,7 @@ import os
 import numpy as np
 import pandas as pd
 
-BASE_PATH = "/content/gdrive/MyDrive/Capstone/Project"
+BASE_PATH = "/content/gdrive/MyDrive/../Project"
 
 # %cd $BASE_PATH
 
