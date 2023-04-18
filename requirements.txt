@@ -3,7 +3,7 @@ pandas==1.4.4
 matplotlib==3.7.1
 csv==1.0
 json==2.0.9
-Pillow==8.4.0
+PIL==8.4.0
 torch==2.0.0+cu118
 torchvision==0.15.1+cu118
 sklearn==1.2.2
