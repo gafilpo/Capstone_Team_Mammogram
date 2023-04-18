@@ -27,6 +27,3 @@ tqdm==4.65.0
 pretrainedmodels==0.7.4
 typer==0.7.0
 typing_extensions==4.5.0
-tensorflow==2.12.0
-seaborn==0.12.2
-plotly==5.13.1
