@@ -16,11 +16,17 @@ tensorflow_addons==0.20.0
 # For PyTorch models
 numpy==1.22.4
 pandas==1.4.4
+matplotlib==3.7.1
 csv==1.0
 json==2.0.9
-PIL.Image==8.4.0
+PIL==8.4.0
 torch==2.0.0+cu118
 torchvision==0.15.1+cu118
 sklearn==1.2.2
 tqdm==4.65.0
 pretrainedmodels==0.7.4
+typer==0.7.0
+typing_extensions==4.5.0
+tensorflow==2.12.0
+seaborn==0.12.2
+plotly==5.13.1

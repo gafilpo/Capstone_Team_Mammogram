@@ -14,7 +14,7 @@ The regulations for using the dataset are found in the [Rules](https://www.kaggl
 
 ### Supplemental Dataset
 
-A supplemental dataset was used exclusevely for training in an effort to increase the number of positive examples. 
+A supplemental dataset was used exclusevely for training in an effort to increase the number of positive examples. This dataset was also obtained from Kaggle under a page titled [DDSM-mammography-positive-case](https://www.kaggle.com/datasets/pourchot/ddsm-mammography-positive-case). The dataset was extracted from the University of South Florida’s DDSM: Digital Database for Screening Mammography and was created to be used in the development of algorithms used for classification of mammograms under the lincense CC BY 3.0 (free to be copied and redistributed in any medium or format).
 
 ## Files Description
 
@@ -50,4 +50,4 @@ We have some helper files plus the main notebook file.
 
 `train.py`: Trains the classifiers, evaluates them and saves the best performing classifier as well as each classifier per epoch and returns the performance metrics of interest. 
 
-`train_classifier.py`: Script constructed in the Google Colab environment to set the desired model configurations and train the classifier by calling the previous py files. This script is also used to produce figures 1, 2, 3 and 4 in the team's Capstone Report. To run this script simply upload it in your Google Colab environment and set its base path as the Google Drive directory where the called upon py files will be saved. Change the configurations depending on which ResNet you are planning to train and run the script. Models and metrics will be saved in the indicated Google Drive directory. 
+`train_classifier.py`: Script constructed in the Google Colab environment to set the desired model configurations and train the classifier by calling the previous py files. This script is also used to produce figures 1, 8, 9 and 10 in the team's Capstone Report. To run this script simply upload it in your Google Colab environment and set its base path as the Google Drive directory where the called upon py files will be saved. Change the configurations depending on which ResNet you are planning to train and run the script. Models and metrics will be saved in the indicated Google Drive directory. 

@@ -23,11 +23,7 @@ class ClassificationDataset(data.Dataset):
             self.transforms = transforms.Compose(
                 [
                     transforms.Resize((image_size_h, image_size_w)),
-                    transforms.RandomHorizontalFlip(p=0.5),
                     transforms.RandomVerticalFlip(p=0.5),
-                    # Note: RandAugment also adds translation and shear
-                    transforms.RandomAffine(degrees=(-30, 30), translate=(0.1, 0.1), scale=(0.9, 1.2), shear=(-10, 10)),
-                    transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1),
                     transforms.RandAugment(),
                     transforms.ToTensor(),
                 ]
@@ -52,7 +48,7 @@ class ClassificationDataset(data.Dataset):
             reader = csv.reader(f)
             for row in reader:
                 self.img_paths.append(row[0])
-                self.labels.append(int(row[1]))
+                self.labels.append(float(row[1]))
 
         self.num_files = len(self.img_paths)
 
