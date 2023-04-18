@@ -71,9 +71,6 @@ TRAIN_CONFIGS = {
 
 """# Training"""
 
-# Unzip dataset
-#!unzip "{BASE_PATH}{EXP_DIR}/{DATASET_NAME}.zip" -d "{BASE_PATH}/{EXP_DIR}"
-
 # Check number of images is correct (sometimes Colab doesn't unzip correctly)
 !ls {DATASET_NAME} |wc -l
 
