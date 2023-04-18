@@ -15,7 +15,7 @@ The regulations for using the dataset are found in the [Rules](https://www.kaggl
 
 ### Supplemental Dataset
 
-A supplemental dataset was used exclusevely for training in an effort to increase the number of positive examples. 
+A supplemental dataset was used exclusevely for training in an effort to increase the number of positive examples. This dataset was also obtained from Kaggle under a page titled [DDSM-mammography-positive-case](https://www.kaggle.com/datasets/pourchot/ddsm-mammography-positive-case). The dataset was extracted from the University of South Florida’s DDSM: Digital Database for Screening Mammography and was created to be used in the development of algorithms used for classification of mammograms under the lincense CC BY 3.0 (free to be copied and redistributed in any medium or format).
 
 ## Files Description
 
