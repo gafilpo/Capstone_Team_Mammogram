@@ -13,7 +13,7 @@ The dataset used for model training and testing was obtained from the **RSNA Scr
 
 The regulations for using the dataset are found in the [Rules](https://www.kaggle.com/competitions/rsna-breast-cancer-detection/rules) section of the **RSNA Screening Mammography Breast Cancer Detection** Kaggle page. The scope of our project is exclusively educational, respecting the licenses for data use and redistribution.
 
-### Supplemental Datset
+### Supplemental Dataset
 
 A supplemental dataset was used exclusevely for training in an effort to increase the number of positive examples. 
 
