@@ -49,7 +49,7 @@ class Trainer:
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=self.base_lr)
         self.scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(self.optimizer, T_max=self.num_epochs)
         self.train_weights = torch.FloatTensor(train_weights).to(self.device)
-        self.criterion = torch.nn.CrossEntropyLoss(weight=self.train_weights)
+        self.criterion = torch.nn.BCEWithLogitsLoss(pos_weight=self.train_weights[1])
 
         # Load data
         self._load_data()
@@ -115,13 +115,20 @@ class Trainer:
             logits, _ = self.model(images)
             logits = torch.squeeze(logits)
 
+            if len(labels) == 1:
+                logits = torch.unsqueeze(logits, 0)
+
             # Loss and optimizer step
-            loss = self.criterion(logits, labels.float()) #fix error
+            if logits.size() != labels.size():
+              print(batch)
+              print(logits)
+              continue
+            loss = self.criterion(logits, labels)
             loss.backward()
             self.optimizer.step()
 
             # Get predictions (using argmax i.e. assuming 0.5 threshold)
-            preds = torch.argmax(logits, dim=1)
+            preds = (logits > 0)
 
             loss_epoch += loss.item()
             accuracy = torch.sum(preds == labels) / len(labels)
@@ -148,7 +155,7 @@ class Trainer:
         loss_sum = 0
         all_labels = []
         all_preds = []
-        categories = ["todo", "done"]
+        categories = ["negative", "positive"]
         for i, batch in tqdm(enumerate(self.val_loader), total=n_batches, desc="Validation"):
             images = batch["image"].to(device=self.device)
             labels = batch["label"].to(device=self.device)
@@ -156,9 +163,18 @@ class Trainer:
             with torch.no_grad():
                 logits, _ = self.model(images)
                 logits = torch.squeeze(logits)
+
+                if len(labels) == 1:
+                    logits = torch.unsqueeze(logits, 0)
+
+                if logits.size() != labels.size():
+                  print(batch)
+                  print(logits)
+                  continue
                 loss = self.criterion(logits, labels)
                 # Get predictions (using threshold 0 for logits i.e. 0.5 for probabilities)
-                preds = torch.argmax(logits, dim=1).cpu()
+                preds = (logits > 0)
+                print(logits)
 
             all_labels += labels.tolist()
             all_preds += preds.tolist()
@@ -168,6 +184,9 @@ class Trainer:
             # Tensorboard bookkeeping
             self.tb_writer.add_scalar("val/loss", loss, epoch * n_batches + i)
 
+        print(all_labels)
+        print(all_preds)
+        print(logits)
         cls_report = metrics.classification_report(
             all_labels, all_preds, target_names=categories, zero_division=0
         )
@@ -216,6 +235,8 @@ class Trainer:
             # Evaluate on validation set
             val_loss, val_acc, val_prec, val_rec, val_f1 = self.evaluate(epoch)
 
+            self.scheduler.step()
+
             # Print metrics
             print(
                 f"Train Loss: {train_loss} | Val Loss: {val_loss} | Train Acc: {train_acc} |"
@@ -231,7 +252,7 @@ class Trainer:
 
             ckpt = {"model": self.model.state_dict()}
 
-            if (val_acc > best_perf or (val_acc == best_perf and val_loss <= best_loss)):
+            if (val_f1 > best_perf or (val_f1 == best_perf and val_loss <= best_loss)):
               # change this cause val_loss can be 0 at epoch 1...
                 best_perf = val_acc
                 best_loss = val_loss
@@ -241,10 +262,11 @@ class Trainer:
                 torch.save(ckpt, self.path_best_model)
                 print(">>> New best model saved!")
 
+            # Save every model
+            torch.save(ckpt, os.path.join(self.outdir, f"model_{epoch}.pt"))
+
             # Save last model
             torch.save(ckpt, self.path_last_model)
-
-        self.scheduler.step()
 
         # Print experiment folder again at the end
         print(f"\n>>> Training done. Best epoch: {best_epoch}. Val mAP: {best_perf}.")
